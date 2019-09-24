@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="文件注意知识点 1. 文本文件1.1 文本文件的打开与关闭 open()：文件分隔符要写成 “ \ “，例如：f = open(&amp;quot;D:\\py\\a.txt&amp;quot;, &amp;#39;r&amp;#39;) open()中的模式注意点：     模式 功能 用法    r+ 为读写打开一个文本文件 一般先读后写，否则直接写原文件会被覆盖   w+ 为读写创建一个新的文本文件 一般先写后读，否则会">
+<meta name="keywords" content="经历分享,保研">
+<meta property="og:type" content="article">
+<meta property="og:title" content="保研经历">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/test/index.html">
+<meta property="og:site_name" content="圆滚滚">
+<meta property="og:description" content="文件注意知识点 1. 文本文件1.1 文本文件的打开与关闭 open()：文件分隔符要写成 “ \ “，例如：f = open(&amp;quot;D:\\py\\a.txt&amp;quot;, &amp;#39;r&amp;#39;) open()中的模式注意点：     模式 功能 用法    r+ 为读写打开一个文本文件 一般先读后写，否则直接写原文件会被覆盖   w+ 为读写创建一个新的文本文件 一般先写后读，否则会">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T16:09:06.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="保研经历">
+<meta name="twitter:description" content="文件注意知识点 1. 文本文件1.1 文本文件的打开与关闭 open()：文件分隔符要写成 “ \ “，例如：f = open(&amp;quot;D:\\py\\a.txt&amp;quot;, &amp;#39;r&amp;#39;) open()中的模式注意点：     模式 功能 用法    r+ 为读写打开一个文本文件 一般先读后写，否则直接写原文件会被覆盖   w+ 为读写创建一个新的文本文件 一般先写后读，否则会">
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/test/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>保研经历 | 圆滚滚</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">圆滚滚</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Don't bow your head, the crown will fall</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YGG">
+      <meta itemprop="description" content="YGG 是圆滚滚的">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="圆滚滚">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">保研经历
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-20 17:22:25" itemprop="dateCreated datePublished" datetime="2019-09-20T17:22:25+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-24 00:09:06" itemprop="dateModified" datetime="2019-09-24T00:09:06+08:00">2019-09-24</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/原创/" itemprop="url" rel="index"><span itemprop="name">原创</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<h5 id="文件注意知识点"><a href="#文件注意知识点" class="headerlink" title="文件注意知识点"></a>文件注意知识点</h5></blockquote>
+<h2 id="1-文本文件"><a href="#1-文本文件" class="headerlink" title="1. 文本文件"></a>1. 文本文件</h2><h4 id="1-1-文本文件的打开与关闭"><a href="#1-1-文本文件的打开与关闭" class="headerlink" title="1.1 文本文件的打开与关闭"></a>1.1 文本文件的打开与关闭</h4><ul>
+<li>open()：文件分隔符要写成 <strong>“ \ “</strong>，例如：<code>f = open(&quot;D:\\py\\a.txt&quot;, &#39;r&#39;)</code></li>
+<li>open()中的模式注意点：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>功能</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r+</td>
+<td>为读写打开一个文本文件</td>
+<td>一般先读后写，否则直接写原文件会被覆盖</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>为读写<strong>创建</strong>一个新的文本文件</td>
+<td>一般先写后读，否则会所读内容为空</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>为读写打开一个文本文件</td>
+<td>定位到文件末尾，原有内容不消失</td>
+</tr>
+</tbody></table>
+<h4 id="1-2-文本文件的读写操作"><a href="#1-2-文本文件的读写操作" class="headerlink" title="1.2 文本文件的读写操作"></a>1.2 文本文件的读写操作</h4><h5 id="1-2-1-read-count"><a href="#1-2-1-read-count" class="headerlink" title="1.2.1 read([count])"></a>1.2.1 read([count])</h5><ul>
+<li>读取当前位置到文件结尾的所有内容</li>
+<li>一般刚打开定位在文件开头，故读取所有内容</li>
+<li>读取的所有内容构成一个字符串返回</li>
+<li>若有参数，读取count个<strong>字符！！！</strong><h5 id="1-2-2-readline-和-readlines"><a href="#1-2-2-readline-和-readlines" class="headerlink" title="1.2.2 readline() 和 readlines()"></a>1.2.2 readline() 和 readlines()</h5><ul>
+<li>readline()：读取一行内容，读取的为字符串，一般带有换行符<ul>
+<li>使用<code>str[:-1]</code>（换行符必存在）</li>
+<li>使用 <code>line.rstrip()</code>（换行符可以不存在）来去除换行符  </li>
+</ul>
+</li>
+<li>readlines()：读取所有行，返回每一行（可能有换行符）内容构成的列表</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-2-3-write"><a href="#1-2-3-write" class="headerlink" title="1.2.3 write()"></a>1.2.3 write()</h5><ul>
+<li>write不换行，需要换行要加换行符</li>
+</ul>
+<h5 id="1-2-4-writelines-lst"><a href="#1-2-4-writelines-lst" class="headerlink" title="1.2.4 writelines(lst)"></a>1.2.4 writelines(lst)</h5><ul>
+<li>参数为列表，将列表中元素依次写入文件，换行符手动加</li>
+</ul>
+<p><strong>不存在writeline方法！！！</strong></p>
+<h3 id="2-二进制文件"><a href="#2-二进制文件" class="headerlink" title="2. 二进制文件"></a>2. 二进制文件</h3><h4 id="2-1-文件的定位"><a href="#2-1-文件的定位" class="headerlink" title="2.1 文件的定位"></a>2.1 文件的定位</h4><ul>
+<li><p>tell()：返回文件当前的位置</p>
+</li>
+<li><p>seek(偏移[,参考点])：更改当前文件位置</p>
+<ul>
+<li>参考点：0（开始处），1（当前位置），2（末尾）</li>
+<li>文本文件只限制相对于文件起始位置进行移动<code>seek(*,0)</code>，否则只能<code>seek(0,1)</code>和<code>seek(0,2)</code>用于定位当前位置和文件末尾</li>
+<li>seek(0,0)：返回文章开头<h4 id="2-2-文件的读写"><a href="#2-2-文件的读写" class="headerlink" title="2.2 文件的读写"></a>2.2 文件的读写</h4><h5 id="2-2-1-read-count-和-write"><a href="#2-2-1-read-count-和-write" class="headerlink" title="2.2.1 read([count]) 和 write()"></a>2.2.1 read([count]) 和 write()</h5></li>
+</ul>
+</li>
+<li><p>若read()有参数，读取count个<strong>字节！！！</strong></p>
+</li>
+<li><p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">s = input(&quot;请输入一个字符串：&quot;)</span><br><span class="line">s = s.encode()                    # 变成字节数据</span><br><span class="line">fo = open(&quot;data.txt&quot;, &quot;wb&quot;)       # 建立二进制文件</span><br><span class="line">fo.write(s)</span><br><span class="line">fo.close()</span><br><span class="line">fo = open(&quot;data.txt&quot;, &quot;rb&quot;)       # 读二进制文件</span><br><span class="line">lst = []</span><br><span class="line">for n in range(1, len(s)+1):</span><br><span class="line">    fo.seek(-n, 2)                # 文件定位从最后一个字符到第一个字符</span><br><span class="line">    s = fo.read(1)                # 读一个字节</span><br><span class="line">    s = chr(ord(s.decode())^24)   # 加密处理</span><br><span class="line">    lst.append(s)</span><br><span class="line">lst = &quot;&quot;.join(lst)                # 将序列元素组成字符串</span><br><span class="line">print(lst)</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>chr()：返回ascii码表示的字符</p>
+</li>
+<li><p>ord()：返回字符对应的ascii码</p>
+</li>
+<li><h5 id="2-2-2-struct模块（处理二进制）"><a href="#2-2-2-struct模块（处理二进制）" class="headerlink" title="2.2.2 struct模块（处理二进制）"></a>2.2.2 struct模块（处理二进制）</h5><p><code>import struct</code></p>
+</li>
+<li><p>pack()：把整形（或者浮点型）打包成二进制的字符串使其可以直接写入文件</p>
+</li>
+<li><p>unpack()：把二进制的字符串解包为数  </p>
+</li>
+<li><p>例子：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import struct</span><br><span class="line">a = b&apos;hello&apos;</span><br><span class="line">b = b&apos;world!&apos;</span><br><span class="line">c = 2</span><br><span class="line">d = 45.123</span><br><span class="line">bytes = struct.pack(&apos;5s6sif&apos;, a, b, c, d)</span><br><span class="line">print(bytes) # b&apos;helloworld!\x00\x02\x00\x00\x00\xf4&#125;4B&apos;</span><br><span class="line">fo = open(&quot;data.txt&quot;, &apos;wb&apos;)</span><br><span class="line">fo.write(bytes)</span><br><span class="line">fo = open(&quot;data.txt&quot;, &apos;rb&apos;)</span><br><span class="line">bytes = fo.read(20)</span><br><span class="line">a,b,c,d = struct.unpack(&apos;5s6sif&apos;, bytes)</span><br><span class="line">print(a,b,c,d) # b&apos;hello&apos; b&apos;world!&apos; 2 45.12300109863281</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-3-pickle模块（直接将python对象写入文件）"><a href="#2-2-3-pickle模块（直接将python对象写入文件）" class="headerlink" title="2.2.3 pickle模块（直接将python对象写入文件）"></a>2.2.3 pickle模块（直接将python对象写入文件）</h5><p><code>import pickle</code></p>
+<ul>
+<li>直接将python对象写入文件，不需要将对象先转为字符串再写入</li>
+<li>dump(数据, 文件对象)</li>
+<li>load(文件对象)：</li>
+<li>例子：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">info = &#123;&apos;one&apos;:1, &apos;two&apos;:2, &apos;three&apos;:3&#125;</span><br><span class="line">f1 = open(&quot;file1.txt&quot;, &apos;wb&apos;)</span><br><span class="line">pickle.dump(info, f1)</span><br><span class="line">f1.close()</span><br><span class="line">f2 = open(&quot;file1.txt&quot;, &apos;rb&apos;)</span><br><span class="line">info1 = pickle.load(f2)</span><br><span class="line">print(info1)   # &#123;&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 3&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="补充eval知识点"><a href="#补充eval知识点" class="headerlink" title="补充eval知识点"></a>补充eval知识点</h5><ul>
+<li>将以字符串形式表现的python对象转化为原来的对象类型</li>
+<li>先导0会导致eval出错，要使用int：<code>eval(&#39;003&#39;)× =&gt; int(&#39;003&#39;)</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(type(eval(&quot;3.5&quot;)))</span><br><span class="line">print(type(eval(&quot;5&quot;)))</span><br><span class="line">print(type(eval(&quot;[2,3,4]&quot;)))</span><br><span class="line">print(type(eval(&quot;&#123;1,2,3,4&#125;&quot;)))</span><br><span class="line">print(type(eval(&quot;&#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;&quot;)))</span><br><span class="line"></span><br><span class="line">&lt;class &apos;float&apos;&gt;</span><br><span class="line">&lt;class &apos;int&apos;&gt;</span><br><span class="line">&lt;class &apos;list&apos;&gt;</span><br><span class="line">&lt;class &apos;set&apos;&gt;</span><br><span class="line">&lt;class &apos;dict&apos;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把字符串的内容作为对应的python语句来执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = &apos;23 + 45&apos;</span><br><span class="line">print(eval(c))      # 68</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-文件管理方法"><a href="#3-文件管理方法" class="headerlink" title="3. 文件管理方法"></a>3. 文件管理方法</h2><h4 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h4><ul>
+<li>os.rename(“当前文件名”, “新文件名”)：文件重命名</li>
+<li>os.remove(“文件名”)：删除文件</li>
+<li>os.mkdir(“目录名”)：创建新目录</li>
+<li>os.chdir(“目标目录”)：切换目录</li>
+<li>os.getcwd()：显示当前目录</li>
+<li>os.rmdir(“待删除目录名”)：删除的目录必须是空目录   </li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/经历分享/" rel="tag"># 经历分享</a>
+            
+              <a href="/tags/保研/" rel="tag"># 保研</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/19/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/20/保研经历/" rel="prev" title="保研经历">
+                  保研经历 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#文件注意知识点"><span class="nav-number">1.</span> <span class="nav-text">文件注意知识点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-文本文件"><span class="nav-number"></span> <span class="nav-text">1. 文本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-文本文件的打开与关闭"><span class="nav-number"></span> <span class="nav-text">1.1 文本文件的打开与关闭</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-文本文件的读写操作"><span class="nav-number"></span> <span class="nav-text">1.2 文本文件的读写操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-1-read-count"><span class="nav-number">1.</span> <span class="nav-text">1.2.1 read([count])</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-2-readline-和-readlines"><span class="nav-number">2.</span> <span class="nav-text">1.2.2 readline() 和 readlines()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-3-write"><span class="nav-number">3.</span> <span class="nav-text">1.2.3 write()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-4-writelines-lst"><span class="nav-number">4.</span> <span class="nav-text">1.2.4 writelines(lst)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二进制文件"><span class="nav-number"></span> <span class="nav-text">2. 二进制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-文件的定位"><span class="nav-number"></span> <span class="nav-text">2.1 文件的定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-文件的读写"><span class="nav-number"></span> <span class="nav-text">2.2 文件的读写</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-read-count-和-write"><span class="nav-number">1.</span> <span class="nav-text">2.2.1 read([count]) 和 write()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-struct模块（处理二进制）"><span class="nav-number">2.</span> <span class="nav-text">2.2.2 struct模块（处理二进制）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-pickle模块（直接将python对象写入文件）"><span class="nav-number">3.</span> <span class="nav-text">2.2.3 pickle模块（直接将python对象写入文件）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#补充eval知识点"><span class="nav-number">4.</span> <span class="nav-text">补充eval知识点</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-文件管理方法"><span class="nav-number"></span> <span class="nav-text">3. 文件管理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#os模块"><span class="nav-number"></span> <span class="nav-text">os模块</span></a></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YGG</p>
+  <div class="site-description" itemprop="description">YGG 是圆滚滚的</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YGG</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

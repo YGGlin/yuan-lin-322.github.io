@@ -55,18 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Problem 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数  Examples   输入 输出 说明    121 true    -121 false 从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数   10 false 从右向左读, 为 01 ；因此它不是一个回文数   进阶：你能不将整数转为字符串来解决这个问题吗？ Solut">
+<meta name="keywords" content="C++,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/09/19/hello-world/index.html">
+<meta property="og:title" content="Leetcode Records: Palindrome Number">
+<meta property="og:url" content="http://yoursite.com/2019/09/24/Leetcode-009-Records-Palindrome Number/index.html">
 <meta property="og:site_name" content="圆滚滚的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Problem 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数  Examples   输入 输出 说明    121 true    -121 false 从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数   10 false 从右向左读, 为 01 ；因此它不是一个回文数   进阶：你能不将整数转为字符串来解决这个问题吗？ Solut">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-19T05:30:17.863Z">
+<meta property="og:updated_time" content="2019-09-24T12:14:54.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-  <link rel="canonical" href="http://yoursite.com/2019/09/19/hello-world/">
+<meta name="twitter:title" content="Leetcode Records: Palindrome Number">
+<meta name="twitter:description" content="Problem 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数  Examples   输入 输出 说明    121 true    -121 false 从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数   10 false 从右向左读, 为 01 ；因此它不是一个回文数   进阶：你能不将整数转为字符串来解决这个问题吗？ Solut">
+  <link rel="canonical" href="http://yoursite.com/2019/09/24/Leetcode-009-Records-Palindrome Number/">
 
 
 <script id="page-configurations">
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title>Hello World | 圆滚滚的博客</title>
+  <title>Leetcode Records: Palindrome Number | 圆滚滚的博客</title>
   
 
 
@@ -217,7 +218,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/19/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Leetcode-009-Records-Palindrome Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YGG">
@@ -229,7 +230,7 @@
       <meta itemprop="name" content="圆滚滚的博客">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hello World
+        <h1 class="post-title" itemprop="name headline">Leetcode Records: Palindrome Number
 
           
         </h1>
@@ -245,7 +246,24 @@
                 
               
 
-              <time title="创建时间：2019-09-19 13:30:17" itemprop="dateCreated datePublished" datetime="2019-09-19T13:30:17+08:00">2019-09-19</time>
+              <time title="创建时间：2019-09-24 17:56:09 / 修改时间：20:14:54" itemprop="dateCreated datePublished" datetime="2019-09-24T17:56:09+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -260,20 +278,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><blockquote>
+<p><em>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数</em></p>
+</blockquote>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><table>
+<thead>
+<tr>
+<th>输入</th>
+<th align="center">输出</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>121</td>
+<td align="center">true</td>
+<td></td>
+</tr>
+<tr>
+<td>-121</td>
+<td align="center">false</td>
+<td>从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">false</td>
+<td>从右向左读, 为 01 ；因此它不是一个回文数</td>
+</tr>
+</tbody></table>
+<p>进阶：你能不将整数转为字符串来解决这个问题吗？</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>1、字符串方法：</p>
+<ul>
+<li>将整型转化为字符串：<code>to_string(number)</code></li>
+<li>对字符串逆序：<code>reverse(str.begin(),str.end())</code></li>
+<li>将逆序后的字符串转回整型：<code>atoi(str.c_str())</code></li>
+</ul>
+<blockquote>
+<p>16 ms 76.82% &emsp;8.2 MB 81.50%</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        // 采用字符串反转的办法，消耗空间比较大</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        string str = to_string(x);</span><br><span class="line">        reverse(str.begin(),str.end()); //对整数字符串进行反转</span><br><span class="line">        int res = atoi(str.c_str());</span><br><span class="line">        if(res == x) return true;</span><br><span class="line">        else return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、常规方法：</span><br><span class="line">+ 依次获取每一数位，反向构造成逆序后的数字</span><br><span class="line">+ 将原数字与逆序后的数字比较</span><br><span class="line">+ 逆序过程中可能出现溢出问题（需要加判断）</span><br><span class="line"></span><br><span class="line">&gt; 8 ms 96.75% &amp;emsp;8.2 MB 81.72%</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>class Solution {<br>public:<br>    bool isPalindrome(int x) {<br>      // 若x为负数或者x的最后一位为0但x本身不为0，肯定不是回文数<br>      if(x &lt; 0) return false;<br>      int res = 0, tmp = x;<br>      while(tmp != 0) {<br>          // 防止溢出，如果发生溢出，那么当前x一定不是回文数<br>          if (res &gt; INT_MAX/10 || (res == INT_MAX / 10 &amp;&amp; (tmp % 10) &gt; 7)) return false;<br>          res = res*10 + (tmp % 10);<br>          tmp = tmp / 10;<br>      }<br>      if(res == x) return true;<br>      else return false;<br>    }<br>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-------------</span><br><span class="line">3、常规方法改进（节省时间）：</span><br><span class="line">+ 只对数字的后半部分进行逆序   </span><br><span class="line">&gt;8 ms 96.75% &amp;emsp;8.1 MB 87.29%</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<p>class Solution {<br>public:<br>    bool isPalindrome(int x) {<br>      if(x &lt; 0 || x % 10 == 0 &amp;&amp; x != 0) return false;<br>      int rev = 0;<br>      // 当rev不再小于x时，认为已经到达x的一半位数了<br>      while(x &gt; rev) {<br>        rev = rev*10 + x % 10;<br>        x /= 10;<br>      }<br>      // 考虑x的数位可能是奇数<br>      return x == rev || x == rev / 10;<br>    }<br>};</p>
+<pre><code></code></pre>
     </div>
 
     
@@ -283,21 +331,32 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/C/" rel="tag"># C++</a>
+            
+              <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/09/20/test/" rel="next" title="保研经历">
+                  <i class="fa fa-chevron-left"></i> 保研经历
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/20/保研经历/" rel="prev" title="保研经历">
-                  保研经历 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -346,7 +405,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">2.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

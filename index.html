@@ -215,6 +215,134 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/Leetcode-009-Records-Palindrome Number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YGG">
+      <meta itemprop="description" content="这是圆滚滚的博客">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="圆滚滚的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/09/24/Leetcode-009-Records-Palindrome Number/" class="post-title-link" itemprop="url">Leetcode Records: Palindrome Number</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 17:56:09 / 修改时间：20:14:54" itemprop="dateCreated datePublished" datetime="2019-09-24T17:56:09+08:00">2019-09-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><blockquote>
+<p><em>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数</em></p>
+</blockquote>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><table>
+<thead>
+<tr>
+<th>输入</th>
+<th align="center">输出</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>121</td>
+<td align="center">true</td>
+<td></td>
+</tr>
+<tr>
+<td>-121</td>
+<td align="center">false</td>
+<td>从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center">false</td>
+<td>从右向左读, 为 01 ；因此它不是一个回文数</td>
+</tr>
+</tbody></table>
+<p>进阶：你能不将整数转为字符串来解决这个问题吗？</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>1、字符串方法：</p>
+<ul>
+<li>将整型转化为字符串：<code>to_string(number)</code></li>
+<li>对字符串逆序：<code>reverse(str.begin(),str.end())</code></li>
+<li>将逆序后的字符串转回整型：<code>atoi(str.c_str())</code></li>
+</ul>
+<blockquote>
+<p>16 ms 76.82% &emsp;8.2 MB 81.50%</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        // 采用字符串反转的办法，消耗空间比较大</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        string str = to_string(x);</span><br><span class="line">        reverse(str.begin(),str.end()); //对整数字符串进行反转</span><br><span class="line">        int res = atoi(str.c_str());</span><br><span class="line">        if(res == x) return true;</span><br><span class="line">        else return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、常规方法：</span><br><span class="line">+ 依次获取每一数位，反向构造成逆序后的数字</span><br><span class="line">+ 将原数字与逆序后的数字比较</span><br><span class="line">+ 逆序过程中可能出现溢出问题（需要加判断）</span><br><span class="line"></span><br><span class="line">&gt; 8 ms 96.75% &amp;emsp;8.2 MB 81.72%</span><br></pre></td></tr></table></figure>
+
+<p>class Solution {<br>public:<br>    bool isPalindrome(int x) {<br>      // 若x为负数或者x的最后一位为0但x本身不为0，肯定不是回文数<br>      if(x &lt; 0) return false;<br>      int res = 0, tmp = x;<br>      while(tmp != 0) {<br>          // 防止溢出，如果发生溢出，那么当前x一定不是回文数<br>          if (res &gt; INT_MAX/10 || (res == INT_MAX / 10 &amp;&amp; (tmp % 10) &gt; 7)) return false;<br>          res = res*10 + (tmp % 10);<br>          tmp = tmp / 10;<br>      }<br>      if(res == x) return true;<br>      else return false;<br>    }<br>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-------------</span><br><span class="line">3、常规方法改进（节省时间）：</span><br><span class="line">+ 只对数字的后半部分进行逆序   </span><br><span class="line">&gt;8 ms 96.75% &amp;emsp;8.1 MB 87.29%</span><br></pre></td></tr></table></figure>
+
+<p>class Solution {<br>public:<br>    bool isPalindrome(int x) {<br>      if(x &lt; 0 || x % 10 == 0 &amp;&amp; x != 0) return false;<br>      int rev = 0;<br>      // 当rev不再小于x时，认为已经到达x的一半位数了<br>      while(x &gt; rev) {<br>        rev = rev*10 + x % 10;<br>        x /= 10;<br>      }<br>      // 考虑x的数位可能是奇数<br>      return x == rev || x == rev / 10;<br>    }<br>};</p>
+<pre><code></code></pre>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -457,7 +585,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-24 00:08:30" itemprop="dateModified" datetime="2019-09-24T00:08:30+08:00">2019-09-24</time>
+                <time title="修改时间：2019-09-24 00:12:44" itemprop="dateModified" datetime="2019-09-24T00:12:44+08:00">2019-09-24</time>
               </span>
             
           
@@ -741,7 +869,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -750,7 +878,7 @@
       
       <div class="site-state-item site-state-categories">
         
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
         
       </div>
@@ -759,7 +887,7 @@
       
       <div class="site-state-item site-state-tags">
         
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
         
       </div>

@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="圆滚滚">
 <meta property="og:description" content="Problem 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数  Examples   输入 输出 说明    121 true    -121 false 从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数   10 false 从右向左读, 为 01 ；因此它不是一个回文数   进阶：你能不将整数转为字符串来解决这个问题吗？ Solut">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T12:14:54.162Z">
+<meta property="og:updated_time" content="2019-09-24T13:48:50.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Records: Palindrome Number">
 <meta name="twitter:description" content="Problem 判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数  Examples   输入 输出 说明    121 true    -121 false 从左向右读为 -121；从右向左读为 121- ；因此不是一个回文数   10 false 从右向左读, 为 01 ；因此它不是一个回文数   进阶：你能不将整数转为字符串来解决这个问题吗？ Solut">
@@ -259,7 +259,7 @@
                 
               
 
-              <time title="创建时间：2019-09-24 17:56:09 / 修改时间：20:14:54" itemprop="dateCreated datePublished" datetime="2019-09-24T17:56:09+08:00">2019-09-24</time>
+              <time title="创建时间：2019-09-24 17:56:09 / 修改时间：21:48:50" itemprop="dateCreated datePublished" datetime="2019-09-24T17:56:09+08:00">2019-09-24</time>
             </span>
           
             
@@ -328,7 +328,7 @@
 <blockquote>
 <p>16 ms 76.82% &emsp;8.2 MB 81.50%</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        // 采用字符串反转的办法，消耗空间比较大</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        string str = to_string(x);</span><br><span class="line">        reverse(str.begin(),str.end()); //对整数字符串进行反转</span><br><span class="line">        int res = atoi(str.c_str());</span><br><span class="line">        if(res == x) return true;</span><br><span class="line">        else return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、常规方法：</span><br><span class="line">+ 依次获取每一数位，反向构造成逆序后的数字</span><br><span class="line">+ 将原数字与逆序后的数字比较</span><br><span class="line">+ 逆序过程中可能出现溢出问题（需要加判断）</span><br><span class="line"></span><br><span class="line">&gt; 8 ms 96.75% &amp;emsp;8.2 MB 81.72%</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPalindrome(int x) &#123;</span><br><span class="line">        // 采用字符串反转的办法，消耗空间比较大</span><br><span class="line">        if(x &lt; 0) return false;</span><br><span class="line">        string str = to_string(x);</span><br><span class="line">        reverse(str.begin(),str.end()); //对整数字符串进行反转</span><br><span class="line">        int res = atoi(str.c_str());</span><br><span class="line">        if(res == x) return true;</span><br><span class="line">        else return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">2、常规方法：</span><br><span class="line">+ 依次获取每一数位，反向构造成逆序后的数字</span><br><span class="line">+ 将原数字与逆序后的数字比较</span><br><span class="line">+ 逆序过程中可能出现溢出问题（需要加判断）</span><br><span class="line"></span><br><span class="line">&gt; 8 ms 96.75% &amp;emsp;8.2 MB 81.72%</span><br></pre></td></tr></table></figure>
 
 <p>class Solution {<br>public:<br>    bool isPalindrome(int x) {<br>      // 若x为负数或者x的最后一位为0但x本身不为0，肯定不是回文数<br>      if(x &lt; 0) return false;<br>      int res = 0, tmp = x;<br>      while(tmp != 0) {<br>          // 防止溢出，如果发生溢出，那么当前x一定不是回文数<br>          if (res &gt; INT_MAX/10 || (res == INT_MAX / 10 &amp;&amp; (tmp % 10) &gt; 7)) return false;<br>          res = res*10 + (tmp % 10);<br>          tmp = tmp / 10;<br>      }<br>      if(res == x) return true;<br>      else return false;<br>    }<br>};</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-------------</span><br><span class="line">3、常规方法改进（节省时间）：</span><br><span class="line">+ 只对数字的后半部分进行逆序   </span><br><span class="line">&gt;8 ms 96.75% &amp;emsp;8.1 MB 87.29%</span><br></pre></td></tr></table></figure>
@@ -370,6 +370,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/26/吴恩达机器学习-单变量线性回归/" rel="prev" title="吴恩达机器学习-单变量线性回归">
+                  吴恩达机器学习-单变量线性回归 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -436,7 +440,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
